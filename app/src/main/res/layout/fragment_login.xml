@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.Loginfrag">
+    tools:context=".Fragment.Loginfrag"
+    android:background="@drawable/2">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,8 +13,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log into your Account"
+            android:text="Log in"
             android:id="@+id/tv_title"
+            android:textColor="@color/dark"
             android:layout_margin="20sp"
             android:gravity="center"
             />
