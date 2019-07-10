@@ -27,8 +27,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/et_mail"
-            android:hint="Enter Mail"
+            android:id="@+id/et_Username"
+            android:hint="Enter Username"
             android:layout_below="@+id/tv_title"
             android:layout_margin="20sp"/>
         <EditText
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/et_lpassword"
             android:hint="Enter password"
-            android:layout_below="@+id/et_mail"
+            android:layout_below="@+id/et_Username"
             android:layout_margin="20sp"/>
 
         <Button
