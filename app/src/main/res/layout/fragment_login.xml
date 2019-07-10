@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.Loginfrag"
-    android:background="@drawable/two">
+    android:background="@drawable/background">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,12 +18,17 @@
             android:textColor="@color/dark"
             android:layout_margin="20sp"
             android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="35dp"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/et_lusername"
-            android:hint="Enter Username"
+            android:id="@+id/et_mail"
+            android:hint="Enter Mail"
             android:layout_below="@+id/tv_title"
             android:layout_margin="20sp"/>
         <EditText
@@ -31,7 +36,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/et_lpassword"
             android:hint="Enter password"
-            android:layout_below="@+id/et_lusername"
+            android:layout_below="@+id/et_mail"
             android:layout_margin="20sp"/>
 
         <Button
@@ -41,8 +46,22 @@
             android:id="@+id/btn_lsignin"
             android:layout_weight="2"
             android:layout_margin="20sp"
-            android:layout_below="@+id/et_lpassword"/>
+            android:layout_below="@+id/et_lpassword"
+            android:background="@drawable/button"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:id="@+id/btn_register"
+            android:layout_weight="2"
+            android:layout_margin="20sp"
+            android:layout_below="@+id/btn_lsignin"
+            android:background="@drawable/button"
+            />
+
 
     </RelativeLayout>
+
 
 </FrameLayout>

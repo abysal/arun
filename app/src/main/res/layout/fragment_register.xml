@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/three"
+    android:background="@drawable/background"
     tools:context=".Fragment.SignupFrag"
     >
 
@@ -48,16 +48,25 @@
             android:hint="Enter your password"
             android:layout_below="@+id/et_username"
             android:layout_margin="10sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_mail"
+            android:hint="Enter your mail"
+            android:layout_below="@+id/et_password"
+            android:layout_margin="10sp"
+            android:inputType="textPassword" />
 
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Up "
-            android:id="@+id/btn_signup"
-            android:layout_below="@id/et_password"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"/>
+            android:text="Register"
+            android:id="@+id/btn_register2"
+            android:layout_weight="2"
+            android:layout_margin="20sp"
+            android:layout_below="@+id/et_mail"
+            android:background="@drawable/button"/>
 
     </RelativeLayout>
 </FrameLayout>
