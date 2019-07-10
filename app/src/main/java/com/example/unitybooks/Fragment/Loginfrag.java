@@ -1,7 +1,9 @@
 package com.example.unitybooks.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -83,6 +85,10 @@ public class Loginfrag extends Fragment implements View.OnClickListener{
 
                     Intent intent = new Intent(getActivity(), Dashboards.class);
                     startActivity(intent);
+                }
+                else {
+                    Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                    vibrator.vibrate(4000);
                 }
                 }
                 @Override
