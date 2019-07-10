@@ -1,6 +1,10 @@
 package com.example.unitybooks.Fragment;
 
 import android.app.Notification;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
@@ -8,6 +12,7 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -27,11 +32,15 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.content.Context.SENSOR_SERVICE;
+
 public class Signinfrag extends Fragment implements View.OnClickListener{
 private NotificationManagerCompat notificationManagerCompat;
     EditText et_fname,et_lname,et_uname,et_pass,et_mail,et_address;
     Button btn_reg;
    User_API uapi;
+   SensorManager sensorManager;
+
 
     public Signinfrag() {
 
@@ -47,7 +56,7 @@ private NotificationManagerCompat notificationManagerCompat;
         notificationManagerCompat = NotificationManagerCompat.from(getActivity());
         Notificationchannel channel= new Notificationchannel(getActivity());
         channel.notification();
-
+        proximity();
         et_fname= view.findViewById(R.id.et_ufname);
         et_lname=view.findViewById(R.id.et_ulname);
         et_uname=view.findViewById(R.id.et_username);
@@ -112,4 +121,41 @@ private void DisplayNotification(){
     notificationManagerCompat.notify(1, notificationchannel);
 
 }
+
+    public void proximity()
+    {
+        sensorManager=(SensorManager)getActivity().getSystemService(SENSOR_SERVICE);
+        Sensor sensor=sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+
+        if (sensor == null)
+        {
+            Toast.makeText(getActivity(), "No sensor detected", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getActivity(), "Sensor Kicking in .....", Toast.LENGTH_SHORT).show();
+        }
+
+        SensorEventListener proximityListener=new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
+                if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+                    if (event.values[0] == 0) {
+                        params.flags = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
+                        params.screenBrightness = 0;
+                        getActivity().getWindow().setAttributes(params);
+                    } else {
+                        params.flags = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
+                        params.screenBrightness = -1f;
+                        getActivity().getWindow().setAttributes(params);
+                    }
+                }
+            }
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+        sensorManager.registerListener(proximityListener,sensor,SensorManager.SENSOR_DELAY_FASTEST);
+    }
 }
