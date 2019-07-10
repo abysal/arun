@@ -1,7 +1,7 @@
 package com.example.unitybooks.Models;
 
 public class Users {
-    public Users(String fname, String lname, String email, String username, String password, String address, String usertype, String age, String profilePic, String tokens) {
+    public Users(String fname, String lname, String email, String username, String password, String address, String usertype) {
         Fname = fname;
         Lname = lname;
         Email = email;
@@ -9,9 +9,7 @@ public class Users {
         Password = password;
         Address = address;
         Usertype = usertype;
-        Age = age;
-        ProfilePic = profilePic;
-        this.tokens = tokens;
+
     }
 
     public String getFname() {
@@ -70,21 +68,7 @@ public class Users {
         Usertype = usertype;
     }
 
-    public String getAge() {
-        return Age;
-    }
 
-    public void setAge(String age) {
-        Age = age;
-    }
-
-    public String getProfilePic() {
-        return ProfilePic;
-    }
-
-    public void setProfilePic(String profilePic) {
-        ProfilePic = profilePic;
-    }
 
     public String getTokens() {
         return tokens;
@@ -99,9 +83,10 @@ public class Users {
     private String Email;
     private String Username;
     private String Password;
+
     private String Address;
+
+
     private String Usertype;
-    private String Age;
-    private String ProfilePic;
     private String tokens;
 }

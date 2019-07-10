@@ -1,72 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".Fragment.SignupFrag"
-    >
+    android:orientation="vertical"
+    tools:context=".Fragment.SigninFrag">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Register"
             android:id="@+id/tv_title"
-            android:textColor="@color/dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="150dp"
-            android:gravity="center"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_ufname"
-            android:hint="Enter Your Firstname"
-            android:layout_below="@+id/tv_title"
-            android:layout_margin="10sp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_ulname"
-            android:hint="Enter Your lastname"
-            android:layout_below="@+id/et_ufname"
-            android:layout_margin="10sp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_username"
-            android:hint="Enter your username"
-            android:layout_below="@+id/et_ulname"
-            android:layout_margin="10sp"/>
+            android:gravity="center"
+            android:text="Register"
+            android:textColor="@color/dark" />
 
         <EditText
+            android:id="@+id/et_ufname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/et_password"
-            android:hint="Enter your password"
-            android:layout_below="@+id/et_username"
-            android:layout_margin="10sp"/>
+            android:layout_below="@+id/tv_title"
+            android:layout_margin="10sp"
+            android:hint="Enter Your Firstname" />
+
         <EditText
+            android:id="@+id/et_ulname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/et_ufname"
+            android:layout_margin="10sp"
+            android:hint="Enter Your lastname" />
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_ulname"
+            android:layout_margin="10sp"
+            android:hint="Enter your username" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_username"
+            android:layout_margin="10sp"
+            android:hint="Enter your password"
+            android:inputType="textPassword" />
+
+        <EditText
             android:id="@+id/et_mail"
-            android:hint="Enter your mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/et_password"
             android:layout_margin="10sp"
-            android:inputType="textPassword" />
+            android:hint="Enter your mail"
+            />
+
+        <EditText
+            android:id="@+id/et_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_mail"
+            android:layout_margin="10sp"
+            android:hint="Enter your address"
+            android:inputType="text" />
 
 
         <Button
+            android:id="@+id/btn_register2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register"
-            android:id="@+id/btn_register2"
-            android:layout_weight="2"
+            android:layout_below="@+id/et_address"
             android:layout_margin="20sp"
-            android:layout_below="@+id/et_mail"
-            android:background="@drawable/button"/>
+            android:layout_weight="2"
+            android:background="@drawable/button"
+            android:text="Register" />
 
     </RelativeLayout>
-</FrameLayout>
+
+</ScrollView>

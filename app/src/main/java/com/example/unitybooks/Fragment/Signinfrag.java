@@ -9,15 +9,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.unitybooks.API.User_API;
+import com.example.unitybooks.Models.LoginResponse;
+import com.example.unitybooks.Models.Users;
 import com.example.unitybooks.R;
+import com.example.unitybooks.Retrofit.RetrofitManager;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Signinfrag extends Fragment implements View.OnClickListener{
 
-    EditText et_lname,et_fname,et_uname,et_pass;
-    Button btn_reg, register;
-    UserAPI uapi;
+    EditText et_fname,et_lname,et_uname,et_pass,et_mail,et_address;
+    Button btn_reg;
+   User_API uapi;
 
-    public SignupFrag() {
+    public Signinfrag() {
 
     }
 
@@ -26,13 +38,15 @@ public class Signinfrag extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_signup, container, false);
+        View view= inflater.inflate(R.layout.fragment_register, container, false);
 
         et_fname= view.findViewById(R.id.et_ufname);
         et_lname=view.findViewById(R.id.et_ulname);
         et_uname=view.findViewById(R.id.et_username);
         et_pass=view.findViewById(R.id.et_password);
-        btn_reg=view.findViewById(R.id.btn_signup);
+        et_mail=view.findViewById(R.id.et_mail);
+        et_address=view.findViewById(R.id.et_address);
+        btn_reg = view.findViewById(R.id.btn_register2);
 
         btn_reg.setOnClickListener(this);
 
@@ -41,37 +55,41 @@ public class Signinfrag extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        if(v.getId()==R.id.btn_signup)
-        {
+        if (v.getId() == R.id.btn_register2) {
             //validation_Registration();
             Gson gson=new GsonBuilder()
                     .setLenient().create();
             Retrofit retrofit=new Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2:2222/")
-                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .baseUrl("http://10.0.2.2:3100/")
+                    .addConverterFactory(GsonConverterFactory.create())
                     .build();
-            uapi=retrofit.create(UserAPI.class);
-            String uFname=et_fname.getText().toString();
-            String uLname=et_lname.getText().toString();
-            String uname=et_uname.getText().toString();
-            String pass=et_pass.getText().toString();
+//
+            uapi=retrofit.create(User_API.class);
+            User_API user_api = RetrofitManager.createinstance().create(User_API.class);
+            String uFname = et_fname.getText().toString();
+            String uLname = et_lname.getText().toString();
+            String uname = et_uname.getText().toString();
+            String upass = et_pass.getText().toString();
+            String umail = et_mail.getText().toString();
+            String uaddress = et_address.getText().toString();
 
-            UserModel userModel= new UserModel(uFname,uLname,uname,pass);
+
+            Users userModel = new Users(uFname,uLname,uname, upass, umail, uaddress,"User");
 
 
-            Call<Void> Usercall=uapi.useradd(userModel);
-            Usercall.enqueue(new Callback<Void>() {
+            final Call<LoginResponse> register = user_api.register(userModel);
+            register.enqueue(new Callback<LoginResponse>() {
                 @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
-                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                    Toast.makeText(getContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
-                public void onFailure(Call<Void> call, Throwable t) {
-                    Toast.makeText(getActivity(), "Error"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                public void onFailure(Call<LoginResponse> call, Throwable t) {
+
                 }
             });
 
         }
 
-    }
+    }}
