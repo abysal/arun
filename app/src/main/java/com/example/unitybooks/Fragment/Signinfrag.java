@@ -1,7 +1,10 @@
 package com.example.unitybooks.Fragment;
 
+import android.app.Notification;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import android.widget.Toast;
 import com.example.unitybooks.API.User_API;
 import com.example.unitybooks.Models.LoginResponse;
 import com.example.unitybooks.Models.Users;
+import com.example.unitybooks.Notification.Notificationchannel;
 import com.example.unitybooks.R;
 import com.example.unitybooks.Retrofit.RetrofitManager;
 import com.google.gson.Gson;
@@ -24,7 +28,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Signinfrag extends Fragment implements View.OnClickListener{
-
+private NotificationManagerCompat notificationManagerCompat;
     EditText et_fname,et_lname,et_uname,et_pass,et_mail,et_address;
     Button btn_reg;
    User_API uapi;
@@ -39,6 +43,10 @@ public class Signinfrag extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_register, container, false);
+
+        notificationManagerCompat = NotificationManagerCompat.from(getActivity());
+        Notificationchannel channel= new Notificationchannel(getActivity());
+        channel.notification();
 
         et_fname= view.findViewById(R.id.et_ufname);
         et_lname=view.findViewById(R.id.et_ulname);
@@ -82,6 +90,7 @@ public class Signinfrag extends Fragment implements View.OnClickListener{
                 @Override
                 public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                     Toast.makeText(getContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
+                    DisplayNotification();
                 }
 
                 @Override
@@ -92,4 +101,15 @@ public class Signinfrag extends Fragment implements View.OnClickListener{
 
         }
 
-    }}
+    }
+private void DisplayNotification(){
+    Notification notificationchannel = new NotificationCompat.Builder(getActivity(), Notificationchannel.Channel1_1)
+            .setSmallIcon(R.drawable.lee)
+            .setContentTitle("Register Successful")
+            .setContentText("Registration Successful")
+            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+            .build();
+    notificationManagerCompat.notify(1, notificationchannel);
+
+}
+}

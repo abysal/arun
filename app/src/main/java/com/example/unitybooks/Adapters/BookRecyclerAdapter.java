@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.unitybooks.Clickevent;
 import com.example.unitybooks.Description;
 import com.example.unitybooks.Models.Books;
 import com.example.unitybooks.R;
@@ -61,18 +62,18 @@ public class BookRecyclerAdapter extends RecyclerView.Adapter<BookRecyclerAdapte
         booksViewHolder.Book_Name.setText("Book_Name:" + books.getBookname());
         booksViewHolder.Book_author.setText("Address:" + books.getBookauthor());
         booksViewHolder.Book_price.setText("Description:" + books.getBookprice());
-        Picasso.get().load(BASE_URL +"books/"+books.getBookImageName() ).into(booksViewHolder.bimg);
+        Picasso.with(context).load(BASE_URL +"books/"+books.getBookImageName() ).into(booksViewHolder.bimg);
         Log.d("url",BASE_URL +"books/"+books.getBookImageName());
         booksViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Description.class);
+                Intent intent = new Intent(context, Clickevent.class);
 
                 intent.putExtra("Book_Name", books.getBookname());
                 intent.putExtra("Book_author", books.getBookauthor());
                 intent.putExtra("Book_price", books.getBookprice());
-                intent.putExtra("Book_img", books.getBookImageName());
-//                intent.putExtra("Book_img", BASE_URL +"/books/" + venues.getBookImageName());
+//                intent.putExtra("Book_img", books.getBookImageName());
+                intent.putExtra("Book_img", BASE_URL +"books/" + books.getBookImageName());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                 context.startActivity(intent);
