@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:orientation="vertical"
+        tools:context=".Fragment.SigninFrag">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150dp"
+                android:gravity="center"
+                android:text="Register"
+                android:textColor="@color/dark" />
+
+            <EditText
+                android:id="@+id/et_uf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_title"
+                android:layout_margin="10sp"
+                android:hint="Enter Your Firstname" />
+
+            <EditText
+                android:id="@+id/et_ul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_uf"
+                android:layout_margin="10sp"
+                android:hint="Enter Your lastname" />
+
+            <EditText
+                android:id="@+id/et_un"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_ul"
+                android:layout_margin="10sp"
+                android:hint="Enter your username" />
+
+            <EditText
+                android:id="@+id/et_p"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_un"
+                android:layout_margin="10sp"
+                android:hint="Enter your password"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/et_m"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_p"
+                android:layout_margin="10sp"
+                android:hint="Enter your mail"
+                />
+
+            <EditText
+                android:id="@+id/et_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_m"
+                android:layout_margin="10sp"
+                android:hint="Enter your address"
+                android:inputType="text" />
+
+
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_a"
+                android:layout_margin="20sp"
+                android:layout_weight="2"
+                android:background="@drawable/button"
+                android:text="Update" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
