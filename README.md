@@ -36,4 +36,4 @@ Retrofit is a REST Client for Android and Java by Square. It makes it relatively
 
 
 ##Conclusion:
-In this way, the project was completed using RESTFUL API which is used to retrieve data from backend.
+In this way, the project was completed using RESTFUL API which is used to retrieve data from backend. This project can be taken as a reference for future works. 
