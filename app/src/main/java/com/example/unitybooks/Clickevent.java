@@ -42,7 +42,7 @@ Bundle bundle;
 //            btnres.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
-//                    Intent intent= new Intent(Clickevent.this, Description.class);
+//                    Intent intent= new Intent(Clickevent.this, .class);
 //                    startActivity(intent);
 //                }
 //            });
