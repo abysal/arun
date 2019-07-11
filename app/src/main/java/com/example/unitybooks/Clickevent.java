@@ -39,13 +39,13 @@ Bundle bundle;
 
             Picasso.with(Clickevent.this).load(image).into(ivbookimage);
         }
-//            btnres.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent= new Intent(Clickevent.this, Buy.class);
-//                    startActivity(intent);
-//                }
-//            });
+            btnres.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent= new Intent(Clickevent.this, Buy.class);
+                    startActivity(intent);
+                }
+            });
 
 
         }
