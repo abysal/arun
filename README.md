@@ -10,8 +10,11 @@ there will come a time for physical books to overpopulate that is when this proj
 
 ##Objectives:
 •	Making user responsive interface.
+
 •	Encouraging other book stores to go online as well.
+
 •	Creating a genuine identity.
+
 •	All time reachable.
 
 
