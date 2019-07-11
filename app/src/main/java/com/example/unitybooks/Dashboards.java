@@ -31,9 +31,9 @@ import retrofit2.http.Url;
 import static com.example.unitybooks.Retrofit.RetrofitManager.createinstance;
 import static com.example.unitybooks.Retrofit.RetrofitManager.token;
 
-public class Dashboards extends AppCompatActivity implements View.OnClickListener {
+public class Dashboards extends AppCompatActivity  {
     RecyclerView rv;
-    Button btnAdd;
+//    Button btnAdd;
     List<Books> Booklist = new ArrayList<>();
     SharedPreferences shared;
     SharedPreferences.Editor editor;
@@ -50,8 +50,8 @@ public class Dashboards extends AppCompatActivity implements View.OnClickListene
         getSupportActionBar().hide();
         rv.setLayoutManager(new GridLayoutManager(this, 3));
         rv.setAdapter(new BookRecyclerAdapter(Booklist, this));
-        btnAdd = findViewById(R.id.btnadd);
-        btnAdd.setOnClickListener(this);
+//        btnAdd = findViewById(R.id.btnadd);
+//        btnAdd.setOnClickListener(this);
 
     }
     //Setting List oF items in Recycler View
@@ -79,15 +79,14 @@ public class Dashboards extends AppCompatActivity implements View.OnClickListene
             }
         });
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnadd:
-                Intent intent = new Intent(Dashboards.this, BookAdd.class);
-                startActivity(intent);
-
-                break;
-        }
-    }
+//
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.btnadd:
+//                Intent intent = new Intent(Dashboards.this, BookAdd.class);
+//                startActivity(intent);
+//
+//                break;
+//        }
 }

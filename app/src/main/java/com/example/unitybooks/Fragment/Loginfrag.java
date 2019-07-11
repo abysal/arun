@@ -47,7 +47,9 @@ public class Loginfrag extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
     if(validate()){
+
     checkUser();
+
 }
 
 

@@ -29,7 +29,7 @@ Bundle bundle;
     txtbname=findViewById(R.id.itbookname);
     txtbprice=findViewById(R.id.itbprice);
     txtbauth=findViewById(R.id.bookauth);
-     btnres=findViewById(R.id.btnres);
+//     btnres=findViewById(R.id.btnres);
 
         if(bundle != null) {
             txtbname.setText(bundle.getString("Book_Name"));
@@ -39,13 +39,13 @@ Bundle bundle;
 
             Picasso.with(Clickevent.this).load(image).into(ivbookimage);
         }
-            btnres.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent= new Intent(Clickevent.this, Buy.class);
-                    startActivity(intent);
-                }
-            });
+//            btnres.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent= new Intent(Clickevent.this, Description.class);
+//                    startActivity(intent);
+//                }
+//            });
 
 
         }
