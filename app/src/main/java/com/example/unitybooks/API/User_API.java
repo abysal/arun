@@ -16,8 +16,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Path;
 
 public interface User_API {
     @FormUrlEncoded
@@ -35,18 +33,5 @@ public interface User_API {
             @Header("Authorization") String token
     );
 
-    @GET("users/getUserById/{id}")
-    Call<Users> loadprofile(@Path("id") String id);
-
-    @FormUrlEncoded
-    @PUT("users/UserUpdateAndroid")
-    Call<String> updateProfile(
-            @Field("_id")String uid,
-    @Field("Fname")String Fname,
-    @Field("Lname")String Lname,
-    @Field("Email")String Email,
-    @Field("Username")String Username,
-    @Field("Password")String Password,
-    @Field("Address")String Address);
 
 }

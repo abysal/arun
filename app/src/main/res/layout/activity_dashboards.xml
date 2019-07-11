@@ -28,6 +28,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnadd"
         android:layout_below="@+id/recyclerView"
-        android:text="Update Profile"/>
+        android:text="Add Books"/>
 
 </RelativeLayout>

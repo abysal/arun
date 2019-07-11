@@ -84,7 +84,7 @@ public class Dashboards extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnadd:
-                Intent intent = new Intent(Dashboards.this, Updatepro.class);
+                Intent intent = new Intent(Dashboards.this, BookAdd.class);
                 startActivity(intent);
 
                 break;

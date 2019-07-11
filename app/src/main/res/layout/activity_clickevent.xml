@@ -107,7 +107,12 @@
         android:orientation="horizontal"
         android:id="@+id/lay4"
         android:layout_margin="60dp">
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnres"
+            android:text="Buy"
+            />
     </LinearLayout>
 
 
