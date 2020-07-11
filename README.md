@@ -26,11 +26,11 @@ there will come a time for physical books to overpopulate that is when this proj
 5. API is used to bring the data.
 
 ##API link:
-https://github.com/stw304cem/t2-backend-api-abysal.git
+
 
 
 ##Youtube link:
-https://youtu.be/e6lAftF9880
+
 
 ##Restlink:
 Retrofit is a REST Client for Android and Java by Square. It makes it relatively easy to retrieve and upload JSON (or other structured data) via a REST based webservice. In Retrofit you configure which converter is used for the data serialization. Typically for JSON you use GSon, but you can add custom converters to process XML or other protocols. Retrofit uses the OkHttp library for HTTP requests.
